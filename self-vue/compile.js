@@ -100,9 +100,8 @@ Compile.prototype = {
                 var dir = attrName.substring(2);
                 if(this.isEventDirective(dir)) {
                     this.compileEvent(node, this.vm, exp, dir);
-                    
                 } else {
-                    // this.compileModel(node, this.vm, exp, dir);
+                    this.compileModel(node, this.vm, exp, dir);
                 }
             }
         });
@@ -120,5 +119,23 @@ Compile.prototype = {
         if (eventType && cb) {
             node.addEventListener(eventType, cb.bind(vm), false);
         }
+    },
+    compileModel(node, vm, exp, dir) {
+        var val = this.vm[exp];
+        this.modelUpdater(node, val);
+        new Watcher(this.vm, exp, value => {
+            this.modelUpdater(node, value);
+        });
+        node.addEventListener("input", e => {
+            var newValue = e.target.value;
+            if (val === newValue) {
+                return;
+            }
+            this.vm[exp] = newValue;
+            val = newValue;
+        })
+    },
+    modelUpdater(node, value, oldVal) {
+        node.value === "undefined" ? "" : value;
     }
 }
