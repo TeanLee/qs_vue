@@ -40,13 +40,32 @@ Compile.prototype = {
             // 要匹配各种符号（比如花括号）就要转义字符
             var reg = /\{\{(.*)\}\}/;
             var text = node.textContent;
+
+
+
             // v-model  v-on:click  mounted 的实现
-            
-            // 获得页面元素中带{{}} 里面的字符串
-            if(text.length && reg.test(text)) {
-                // console.log(reg.exec(text)[1]);
+            // 两个分支：一个是元素节点，一个是文本节点
+            if(this.isElementNode(node)) {
+                // 去分析节点
+                this.compile(node);
+            } else if (this.isTextNode(node) && reg.test(text)) {
                 this.compileText(node, reg.exec(text)[1]);
             }
+
+
+            // 递归
+            // 是子节点，并且存在子节点（文档节点没有子节点，文本可能有子节点）
+            if(node.childNodes && node.childNodes.length) {
+                this.compileElement(node);
+            }
+
+
+
+            // 获得页面元素中带{{}} 里面的字符串
+            // if(text.length && reg.test(text)) {
+                // console.log(reg.exec(text)[1]);
+                // this.compileText(node, reg.exec(text)[1]);
+            // }
             
         });
     },
@@ -54,9 +73,22 @@ Compile.prototype = {
         // var initText = this.vm.data[exp];
         var initText = this.vm[exp];
         this.updateText(node, initText);
+        // 订阅者模式添加一个监听
+        new Watcher(this.vm, exp, value => {
+            this.updateText(node, value);
+        })
     },
     updateText (node, value) {
         // console.log(node, value);
         node.textContent = typeof value === "undefined" ? "" : value;
+    },
+    isElementNode(node) {
+        return node.nodeType == 1;
+    },
+    isTextNode(node) {
+        return node.nodeType == 3;
+    },
+    compile (node) {
+
     }
 }
