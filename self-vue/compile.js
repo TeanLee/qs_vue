@@ -89,6 +89,36 @@ Compile.prototype = {
         return node.nodeType == 3;
     },
     compile (node) {
-
+        // 得到所有标签的属性
+        var nodeAttrs = node.attributes;
+        Array.prototype.forEach.call(nodeAttrs, (attr) => {
+            var attrName = attr.name;
+            // 判断是否是指令，标志是以"v-"开头
+            if(this.isDirective(attrName)) {
+                var exp = attr.value;
+                // 获得是什么指令    如果是“on”指令就执行以下的点击方法
+                var dir = attrName.substring(2);
+                if(this.isEventDirective(dir)) {
+                    this.compileEvent(node, this.vm, exp, dir);
+                    
+                } else {
+                    // this.compileModel(node, this.vm, exp, dir);
+                }
+            }
+        });
+    },
+    isDirective (attr) {
+        // 等于0表示存在
+        return attr.indexOf("v-") == 0;
+    },
+    isEventDirective (dir) {
+        return dir.indexOf("on:") === 0;
+    },
+    compileEvent (node, vm, exp, dir) {
+        var eventType = dir.split(":")[1];
+        var cb = vm.methods && vm.methods[exp];
+        if (eventType && cb) {
+            node.addEventListener(eventType, cb.bind(vm), false);
+        }
     }
 }
