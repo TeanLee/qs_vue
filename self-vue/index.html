@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- vue renderer
+    template  ->  pre commpile
+    手动实现一个vue   实现事件绑定、mvvm
+    vue 运行的一个scope区域 -->
+
+    <!-- 占位符：  {{}}    所有有花括号的地方，就是要替换值的地方   可以用正则实现   
+        并且mvvm最核心的是数据改变页面改变，要实现实时编译  node  每次数据改变，就会把伪节点实时编译，把最小的地方替换到页面上 -->
+    <div id="app">
+        <h2>{{title}}</h2>
+        <!-- v-model  数据的双向绑定，输入框数据改变，data中name的值也会改变 -->
+        <input v-model="name" type="text" name="" id="">
+        <h1>{{name}}</h1>
+        <button v-on:click="clickMe">click me!</button>
+    </div>
+    <!-- 引用 官方提供的vue实现 -->
+    <!-- <script src="https://cdn.bootcss.com/vue/2.5.13/vue.min.js"></script> -->
+
+
+    
+    <!-- 手动实现 -->
+    <script src="./compile.js"></script>
+    <script src="./vue.js"></script>
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                title: "hello world!",
+                name: "canfoo"
+            },
+            methods: {
+                clickMe(){
+                    this.title  = "你好";
+                }
+            },
+            mounted() {
+                setTimeout(() => {
+                    this.title = "吃了吗？";
+                }, 1000)
+            }
+        })
+    </script>
+</body>
+
+
+</html>
