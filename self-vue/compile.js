@@ -40,20 +40,23 @@ Compile.prototype = {
             // 要匹配各种符号（比如花括号）就要转义字符
             var reg = /\{\{(.*)\}\}/;
             var text = node.textContent;
+            // v-model  v-on:click  mounted 的实现
+            
             // 获得页面元素中带{{}} 里面的字符串
             if(text.length && reg.test(text)) {
-                console.log(reg.exec(text)[1]);
+                // console.log(reg.exec(text)[1]);
                 this.compileText(node, reg.exec(text)[1]);
             }
             
         });
     },
     compileText (node, exp) {
-        var initText = this.vm.data[exp];
+        // var initText = this.vm.data[exp];
+        var initText = this.vm[exp];
         this.updateText(node, initText);
     },
     updateText (node, value) {
-        console.log(node, value);
+        // console.log(node, value);
         node.textContent = typeof value === "undefined" ? "" : value;
     }
 }
