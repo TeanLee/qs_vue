@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>观察者模式-发布订阅者模式</title>
+    <style>
+    html, body {
+        height: 100%;
+    }
+    </style>
+</head>
+<body>
+    <script>
+        // 异步执行
+        // js 事件机制 单线程  事件池子
+        // addEventListener 最简单的发布订阅者模式（发生在未来的）
+        // document.body 是观察者  被观察的对象，不会立即执行，在发生改变以后才会被触发
+        document.body.addEventListener("click", () => {
+            alert("1");
+        });
+        document.body.addEventListener("click", () => {
+            alert("2");
+        });
+        document.body.addEventListener("click", () => {
+            alert("3");
+        });    
+    </script>
+</body>
+</html>
