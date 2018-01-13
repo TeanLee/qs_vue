@@ -14,7 +14,7 @@
           </el-col>
         </el-row>
         <el-radio-group v-model="ruleForm.fenlei">
-          <el-radio v-for="item of ruleForm.fenlei" :key="item.name" :label="item.name"></el-radio>
+          <el-radio v-for="item of ruleForm.fenleis" :label="item.name" :key="item.name"></el-radio>
         </el-radio-group>
       </el-form-item>
       <el-dialog title="设置活动分类" :visible.sync="dialogFormFenLeiVisible">
