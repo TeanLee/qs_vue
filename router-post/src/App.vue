@@ -1,5 +1,15 @@
 <template>
   <div id="app">
+    <el-badge class="item" :value="1" :max="9">
+      <el-button nativeType="submit"></el-button>
+    </el-badge>
+    <el-badge class="item" :value="10" :max="9">
+      <el-button nativeType="submit"></el-button>
+    </el-badge>
+    <!-- :isDot="true"  或者直接传   isDot   可以传值  变成小圆点 -->
+    <el-badge class="item" :value="1" :max="9" isDot>
+      <el-button nativeType="submit"></el-button>
+    </el-badge>
     <!-- nativeType 设置事件   对应的是button的type -->
     <el-button nativeType="submit" size="medium" @click="addComment">评论</el-button>
     <!-- :disabled 一定要加 :  作为动态绑定 -->
@@ -9,6 +19,7 @@
 </template>
 
 <script>
+import ELBadge from "@/components/ELBadge"
 import ELButton from "@/components/ELButton"
 
 export default {
@@ -32,7 +43,8 @@ export default {
     }
   },
   components: {
-    "el-button": ELButton
+    "el-button": ELButton,
+    "el-badge": ELBadge
   }
 }
 </script>
