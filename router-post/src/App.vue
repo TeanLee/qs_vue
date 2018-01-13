@@ -1,61 +1,26 @@
 <template>
   <div id="app">
-    <el-badge class="item" :value="1" :max="9">
-      <el-button nativeType="submit"></el-button>
-    </el-badge>
-    <el-badge class="item" :value="10" :max="9">
-      <el-button nativeType="submit"></el-button>
-    </el-badge>
-    <!-- :isDot="true"  或者直接传   isDot   可以传值  变成小圆点 -->
-    <el-badge class="item" :value="1" :max="9" isDot>
-      <el-button nativeType="submit"></el-button>
-    </el-badge>
-    <!-- nativeType 设置事件   对应的是button的type -->
-    <el-button nativeType="submit" size="medium" @click="addComment">评论</el-button>
-    <!-- :disabled 一定要加 :  作为动态绑定 -->
-    <el-button :disabled="saveDisabled" @click="doSave" size="small" type="primary">发布</el-button>
-    <el-button size="mini" type="text">前往</el-button>
+      <!-- 评分组件   是一个双向绑定   值能改变分数   分数可以改变值
+      子组件和父组件绑定在一起   类似于一个输入绑定
+      v-model 会默认给子组件传值 -->
+      <el-rate v-model="rate1"></el-rate>
   </div>
 </template>
 
 <script>
-import ELBadge from "@/components/ELBadge"
-import ELButton from "@/components/ELButton"
-
+import ELRate from "@/components/ELRate"
 export default {
-  name: 'app',
-  data() {
-    return {
-      saveDisabled: true
-    }
-  },
-  mouted() {
-    setTimeout(() => {
-      this.saveDisabled = false
-    }, 5000)
-  },
-  methods: {
-    addComment() {
-      console.log("添加评论")
+    data() {
+        return {
+            rate1: null
+        }
     },
-    doSave() {
-      console.log("发布")
+    components: {
+        "el-rate": ELRate
     }
-  },
-  components: {
-    "el-button": ELButton,
-    "el-badge": ELBadge
-  }
 }
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+
 </style>
