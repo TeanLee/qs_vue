@@ -15,6 +15,10 @@ const mutations = {
     // key 是常量  用[]
     [types.RECEIVE_PRODUCTS] (state, { products }) {
         state.all = products
+    },
+    // mutation 对数据的改变  将商品数量进行减一
+    [types.ADD_TO_CART] (state, {id}) {
+        state.all.find(product => product.id === id).inventory--
     }
 }
 
