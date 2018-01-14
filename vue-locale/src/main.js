@@ -19,6 +19,7 @@ Vue.config.productionTip = false
 new Vue({
   el: '#app',
   router,
+  // 将中央仓库注入到界面中
   store,
   i18n,
   components: { App },
