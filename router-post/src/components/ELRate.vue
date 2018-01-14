@@ -56,7 +56,7 @@ export default {
         colors: {
             type: Array,
             default() {
-                return ["#F7BA2A", "#F7BA2A", "#F7BA2A"]
+                return ["#636363", "#F08080", "#F7BA2A"]
             }
         },
         highThreshold: {
