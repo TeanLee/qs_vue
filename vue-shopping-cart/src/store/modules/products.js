@@ -28,7 +28,7 @@ const actions = {
     getAllProducts ({ commit }) {
         shop.getProducts(products => {
             // console.log(products)
-            // { products } 花括号？？？     {commit} ???
+            // { products } 花括号  传入的商品 参数解构    {commit} 是官方文档提出的    actions需要向mutations提交数据，就必须要这个参数
             commit(types.RECEIVE_PRODUCTS, { products })
         })
     }
