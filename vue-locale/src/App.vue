@@ -2,7 +2,7 @@
   <div id="app">
     <h3>{{$t('login.title')}}</h3>
     <lang-select class="set-language"></lang-select>
-    <router-view/>
+    <!-- <router-view/> -->
   </div>
 </template>
 
@@ -12,6 +12,15 @@ export default {
   name: 'App',
   components:{
     LangSelect
+  },
+  mounted() {
+    // console.log(this.$http)
+    this.$http.post('/login/login', {
+      username: 'admin',
+      password: '123456'
+    }).then(response => {
+      console.log(response)
+    })
   }
 }
 </script>
