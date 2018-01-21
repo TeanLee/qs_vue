@@ -4,6 +4,7 @@
       <el-input size="large" class="input-con" placeholder="请输入内容" suffix-icon="el-icon-search"></el-input>
     </bc-header>
     <bc-logos></bc-logos>
+    <search-result></search-result>
     <router-view/>
   </div>
 </template>
@@ -11,12 +12,14 @@
 <script>
 import BCHeader from './components/common/header'
 import BCLogos from './components/common/logos'
+import SerachResult from './components/page/searchResult'
 
 export default {
   name: 'App',
   components: {
     'bc-header': BCHeader,
-    'bc-logos': BCLogos
+    'bc-logos': BCLogos,
+    'search-result': SerachResult
   }
 }
 </script>
