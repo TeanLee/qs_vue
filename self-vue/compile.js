@@ -26,10 +26,13 @@ Compile.prototype = {
         while(child) {
             // console.log(child);
             // 将文档节点串成一串，交给文档碎片
+            console.log(child);
             fragment.appendChild(child);
             // 得到所有的节点
             child = el.firstChild;
         }
+        console.log("====下面是fragment===");
+        console.log(fragment);
         return fragment;
     },
     compileElement (el) {
