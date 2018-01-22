@@ -4,6 +4,11 @@
       <el-input size="large" class="input-con" placeholder="请输入内容" suffix-icon="el-icon-search"></el-input>
     </bc-header>
     <bc-logos></bc-logos>
+    <el-row>
+      <el-col :span="22">
+        <a class="alert">拒绝流量劫持，全面使用HTTPS！</a>
+      </el-col>
+    </el-row>
     <search-result></search-result>
     <router-view/>
   </div>
@@ -31,5 +36,12 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+}
+.alert {
+  color: #aaa;
+  float: right;
+  font-size: 14px;
+  line-height: 1.42857143;
+  margin-top: 30px;
 }
 </style>

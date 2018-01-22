@@ -1,23 +1,22 @@
 <template>
   <div class="searchResult">
     <el-row :gutter="20">
-        <el-col :span="18" :offset="2">
-            <el-table :data="tableData" border style="width: 100%">
-    <el-table-column
-      prop="date"
-      label="日期"
-      width="180">
-    </el-table-column>
-    <el-table-column
-      prop="name"
-      label="姓名"
-      width="180">
-    </el-table-column>
-    <el-table-column
-      prop="address"
-      label="地址">
-    </el-table-column>
-  </el-table>
+        <el-col :span="20" :offset="2"  class="out-row">
+            <el-row class="inner-row">
+              <el-col :span="6" class="result-span span-l">bootstrap</el-col>
+              <el-col :span="6" class="result-span span-r">
+                <a>The most popular</a>
+                <br/><i class="el-icon-star-on">456</i>
+              </el-col>
+            </el-row>
+
+            <el-row class="inner-row">
+              <el-col :span="6" class="result-span span-l">bootstrap</el-col>
+              <el-col :span="6" class="result-span span-r">
+                The most popular
+                <br /><i class="el-icon-star-on"></i>456
+              </el-col>
+            </el-row>
         </el-col>
     </el-row>
 
@@ -26,30 +25,39 @@
 
 <script>
 export default {
-    data() {
-      return {
-        tableData: [{
-          date: '2016-05-02',
-          name: '王小虎',
-          address: '上海市普陀区金沙江路 1518 弄'
-        }, {
-          date: '2016-05-04',
-          name: '王小虎',
-          address: '上海市普陀区金沙江路 1517 弄'
-        }, {
-          date: '2016-05-01',
-          name: '王小虎',
-          address: '上海市普陀区金沙江路 1519 弄'
-        }, {
-          date: '2016-05-03',
-          name: '王小虎',
-          address: '上海市普陀区金沙江路 1516 弄'
-        }]
-      }
-    }
+     
 }
 </script>
 
 <style>
-
+.out-row {
+  margin-top: 50px;
+  padding: 0;
+  border: 1px solid #edf0ef;
+}
+.result-span {
+  padding: 25px 0 25px 25px;
+  color: #3b3b38;
+  font-size: 16;
+  font-weight: bold;
+  text-align: left;
+}
+.inner-row:first-child {
+  border: none;
+}
+.inner-row {
+  border-top: 1px solid #edf0ef;
+}
+.span-l {
+  color: black;
+}
+.span-r {
+  font-size: 14px;
+  color: #ada8a3;
+  font-weight: normal;
+}
+.el-icon-star-on {
+  padding-top: 10px;
+  font-size: 12px;
+}
 </style>
