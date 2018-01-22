@@ -9,7 +9,8 @@
         <a class="alert">拒绝流量劫持，全面使用HTTPS！</a>
       </el-col>
     </el-row>
-    <search-result></search-result>
+    <!-- <search-result></search-result> -->
+    <version></version>
     <!-- <router-view/> -->
     <bc-footer></bc-footer>
   </div>
@@ -20,6 +21,7 @@ import BCHeader from './components/common/header'
 import BCLogos from './components/common/logos'
 import SerachResult from './components/page/searchResult'
 import Footer from './components/common/footer'
+import Version from './components/page/version'
 
 export default {
   name: 'App',
@@ -27,7 +29,8 @@ export default {
     'bc-header': BCHeader,
     'bc-logos': BCLogos,
     'search-result': SerachResult,
-    'bc-footer': Footer
+    'bc-footer': Footer,
+    'version': Version
   }
 }
 </script>

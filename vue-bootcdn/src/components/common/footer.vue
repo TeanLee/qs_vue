@@ -1,13 +1,13 @@
 <template>
   <div>
       <el-row type="flex" justify="center" class="footer">
-          <el-col :span="11">
+          <el-col :span="10">
               <h4>关于 BootCDN</h4>
               <p>BootCDN 是 <a href="http://www.bootcss.com/" target="_blank">Bootstrap 中文网</a>支持并维护的前端开源项目免费 CDN 服务，致力于为 Bootstrap、jQuery、Angular、Vuejs 一样优秀的前端开源项目提供稳定、快速的免费 CDN 加速服务。BootCDN 所收录的开源项目主要同步于 <a href="https://github.com/cdnjs/cdnjs" target="_blank" onclick="_hmt.push(['_trackEvent', 'footer', 'click', 'footer-github.com'])">cdnjs</a> 仓库。</p>
               <p>自2013年10月31日上线以来已经为30多万家网站提供了稳定、可靠的免费 CDN 加速服务。</p>
               <p>反馈或建议请发送邮件至：cdn@bootcss.com</p>
           </el-col>
-          <el-col :span="6">
+          <el-col :span="7">
               <h4>友情链接</h4>
               <ul class="list-unstyled list-inline">
                   <li><a href="http://www.bootcss.com/" target="_blank">Bootstrap中文网</a></li>
@@ -20,7 +20,7 @@
                   <li><a href="http://www.91php.com/" target="_blank">Node.js中文文档</a></li>
                 </ul>
           </el-col>
-          <el-col :span="4">
+          <el-col :span="3">
               <h4>我们用到的技术</h4>
               <ul class="list-unstyled list-inline">
                   <li><a href="http://www.bootcss.com/" target="_blank">Bootstrap</a></li>
@@ -70,10 +70,11 @@ li {
     display: inline-block;
     padding-right: 5px;
     padding-left: 5px;
+    margin-bottom: 4px;
 }
-.el-col {
-    padding-left: 25px;
-    padding-right: 25px;
+.el-col:nth-child(2) {
+    padding-left: 40px;
+    padding-right: 40px;
 }
 h4 {
     font-size: 18px;
