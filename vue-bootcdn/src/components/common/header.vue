@@ -1,11 +1,11 @@
 <template>
     <div class="header">
         <div class="nav">
-          <el-button class="left logo" type="text">BootCDN</el-button>
+          <el-button class="left logo" type="text"><a href="http://www.bootcdn.cn" target="_blank">BootCDN</a></el-button>
           <ul class="right">
-              <li><el-button class="nav-right" type="text">API</el-button></li>
-              <li><el-button class="nav-right" type="text">博客</el-button></li>
-              <li><el-button class="nav-right" type="text">关于</el-button></li>
+              <li><el-button class="nav-right" type="text"><a href="http://www.bootcdn.cn/api" target="_blank">API</a></el-button></li>
+              <li><el-button class="nav-right" type="text"><a href="http://blog.bootcdn.cn/" target="_blank">博客</a></el-button></li>
+              <li><el-button class="nav-right" type="text"><a href="http://blog.bootcdn.cn/#about" target="_blank">关于</a></el-button></li>
           </ul>
         </div>
         <el-row :gutter="20">
@@ -35,6 +35,10 @@ export default {
     width: 100%;
     height: 400px;
     background-color: #00b060;
+    color: #ffffff;
+}
+a {
+    text-decoration: none;
     color: #ffffff;
 }
 .nav {
@@ -71,7 +75,7 @@ li .el-button:hover {
     color: #ffffff;
 }
 .title h1 {
-    margin-top: 20px;  
+    margin-top: 40px;  
     font-size: 56px;
     font-weight: 500;
     color: #ffffff;
