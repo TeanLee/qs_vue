@@ -75,7 +75,7 @@ li .el-button:hover {
     color: #ffffff;
 }
 .title h1 {
-    margin-top: 40px;  
+    margin-top: 20px;  
     font-size: 56px;
     font-weight: 500;
     color: #ffffff;

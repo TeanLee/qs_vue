@@ -1,7 +1,7 @@
 <template>
   <div class="searchResult">
     <el-row :gutter="20">
-        <el-col :span="20" :offset="2"  class="out-row">
+        <el-col :span="20" :offset="2"  class="out-row" onclick="window.open('http://www.baidu.com')">
             <el-row class="inner-row">
               <el-col :span="6" class="result-span span-l">bootstrap</el-col>
               <el-col :span="6" class="result-span span-r">
@@ -48,6 +48,10 @@ export default {
 }
 .inner-row {
   border-top: 1px solid #edf0ef;
+}
+.inner-row:hover {
+  cursor: pointer;
+  background-color: #F0F0F0;
 }
 .span-l {
   color: black;
