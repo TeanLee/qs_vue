@@ -10,7 +10,8 @@
       </el-col>
     </el-row>
     <search-result></search-result>
-    <router-view/>
+    <!-- <router-view/> -->
+    <bc-footer></bc-footer>
   </div>
 </template>
 
@@ -18,13 +19,15 @@
 import BCHeader from './components/common/header'
 import BCLogos from './components/common/logos'
 import SerachResult from './components/page/searchResult'
+import Footer from './components/common/footer'
 
 export default {
   name: 'App',
   components: {
     'bc-header': BCHeader,
     'bc-logos': BCLogos,
-    'search-result': SerachResult
+    'search-result': SerachResult,
+    'bc-footer': Footer
   }
 }
 </script>

@@ -34,6 +34,7 @@ export default {
   margin-top: 50px;
   padding: 0;
   border: 1px solid #edf0ef;
+  margin-bottom: 100px;
 }
 .result-span {
   padding: 25px 0 25px 25px;
