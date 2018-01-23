@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <bc-header>
-      <el-input size="large" class="input-con" placeholder="请输入内容" suffix-icon="el-icon-search"></el-input>
+      <router-view name="searchInput"/>
     </bc-header>
     <bc-logos></bc-logos>
     <el-row>
@@ -10,8 +10,8 @@
       </el-col>
     </el-row>
     <!-- <search-result></search-result> -->
-    <version></version>
-    <!-- <router-view/> -->
+    <!-- <version></version> -->
+    <router-view/>
     <bc-footer></bc-footer>
   </div>
 </template>
@@ -19,9 +19,9 @@
 <script>
 import BCHeader from './components/common/header'
 import BCLogos from './components/common/logos'
-import SerachResult from './components/page/searchResult'
+import SerachResult from './components/common/searchResult'
 import Footer from './components/common/footer'
-import Version from './components/page/version'
+import Version from './components/common/version'
 
 export default {
   name: 'App',
