@@ -30,7 +30,6 @@ export default {
 
 <style scoped>
 .version-inner {
-    border: 1px solid red;
     margin-top: 50px;
     margin-bottom: 100px;
     text-align: left;
@@ -40,7 +39,12 @@ h3 {
     margin-bottom: 10px;
     font-weight: 500;
 }
+ul {
+    margin-left: 30px;
+    border-left: 3px solid #2cc36b;
+}
 li {
+    list-style-type: none;
     padding-left: 20px;;
     color: #333;
     border: 1px solid #ecf0f1;
