@@ -2,21 +2,17 @@
   <div class="searchResult">
     <el-row :gutter="20">
         <el-col :span="20" :offset="2"  class="out-row" onclick="window.open('http://www.baidu.com')">
-            <el-row class="inner-row">
-              <el-col :span="6" class="result-span span-l">bootstrap</el-col>
-              <el-col :span="6" class="result-span span-r">
-                <a>The most popular</a>
-                <br/><i class="el-icon-star-on">456</i>
-              </el-col>
-            </el-row>
-
-            <el-row class="inner-row">
-              <el-col :span="6" class="result-span span-l">bootstrap</el-col>
-              <el-col :span="6" class="result-span span-r">
-                The most popular
-                <br /><i class="el-icon-star-on"></i>456
-              </el-col>
-            </el-row>
+            <div v-for="(msg, idx) in msgs" :key="idx">
+              <div v-for="(item, id) in msg" :key="id">
+                <el-row class="inner-row">
+                  <el-col :span="6" class="result-span span-l">{{item}}</el-col>
+                  <el-col :span="6" class="result-span span-r">
+                    <a>{{item}}</a>
+                    <br/><i class="el-icon-star-on">{{item}}</i>
+                  </el-col>
+                </el-row>
+              </div>
+            </div>
         </el-col>
     </el-row>
 
@@ -24,8 +20,25 @@
 </template>
 
 <script>
+import axios from 'axios'
+
 export default {
-     
+  data() {
+    return {
+      msgs: ""
+    }
+  },
+  mounted: function(){
+      axios.get('https://api.bootcdn.cn/libraries.json')
+      .then(msg => {
+        console.log(msg)
+        this.msgs = msg
+      })
+      .catch(error => {
+          console.log('error');
+          alert('error');
+      })
+  }
 }
 </script>
 

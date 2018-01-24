@@ -14,14 +14,14 @@ import axios from 'axios'
 
 export default {
     created: function() {
-        axios.get('https://api.bootcdn.cn/libraries/vue.json')
-        .then(response => {
-            console.log(response);
-        })
-        .catch(error => {
-            console.log('error');
-            alert('error');
-        })
+        // axios.get('https://api.bootcdn.cn/libraries/vue.json')
+        // .then(response => {
+        //     console.log(response);
+        // })
+        // .catch(error => {
+        //     console.log('error');
+        //     alert('error');
+        // })
     }
 }
 </script>
