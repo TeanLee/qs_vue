@@ -5,7 +5,7 @@
             <div v-for="(msg, idx) in msgs" :key="idx">
               <div v-for="(item, id) in msg" :key="id">
                 <el-row class="inner-row">
-                  <el-col :span="6" class="result-span span-l">{{item}}</el-col>
+                  <el-col :span="6" class="result-span span-l">{{Object.prototype.toString.call(item)}}</el-col>
                   <el-col :span="6" class="result-span span-r">
                     <a>{{item}}</a>
                     <br/><i class="el-icon-star-on">{{item}}</i>
