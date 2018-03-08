@@ -58,62 +58,71 @@ export default {
     }
   },
   methods: {
-    transformIndex(index) {
-      if(index === this.temporaryData.currentPage) {
-        let style = {};
+    transformIndex (index) {
+      if (index === 
+      this.temporaryData.currentPage) {
+        let style = {}
         style['zIndex'] = 10;
-        style['opacity'] = this.temporaryData.opacity;
-        style['transform'] = 'translate3D(' + this.temporaryData.poswidth + 'px' + ',' + this.temporaryData.posheight+ 'px' + ','
-         + ',0px) rotate(' + this.temporaryData.rotate + 'deg)';
-        style['transitionTimingFunction'] = 'ease';
-        style['transitionDuration'] = '300ms';
+        style['opacity'] = 
+        this.temporaryData.opacity;
+        style['transform'] = 
+        'translate3D(' + 
+        this.temporaryData.poswidth + 'px' + ',' +
+        this.temporaryData.posheight + 'px' + ',0px) rotate(' +
+         this.temporaryData.rotate + 'deg)'
+        style['transitionTimingFunction']= 'ease';
+        style['transitionDuration'] = '300ms'
         return style;
       }
     },
     transform (index) {
       let currentPage = this.temporaryData.currentPage;
       let length = this.pages.length;
-      let lastPage = currentPage === 0 ? this.pages - 1 : currentPage - 1
+      let lastPage = currentPage === 0 ?
+      this.pages.length - 1 : currentPage -1;
       let style = {}
-      let visible = this.temporaryData.visible;
-      if(index === this.temporaryData.currentPage) {
-        return 
+      let visible = this.temporaryData.visible
+      if (index === 
+      this.temporaryData.currentPage) {
+        return
       }
-      if(this.inStack(index, currentPage)) {
-        let perIndex = index - currentPage > 0 ? index - currentPage : index - currentPage + length;
-        style['opacity'] = 1;
-        style['transform'] = 'translate3D(0, 0,' + -1 * 60*(perIndex - this.offsetRatio) + 'px)';
+      if (this.inStack(index, 
+      currentPage)) {
+        let perIndex = index - currentPage > 0 ? index - currentPage : index - currentPage + length
+        style['opacity'] = 1
+        style['transform'] = 
+        'translate3D(0,0,' + -1 * 60*(perIndex-this.offsetRatio) +'px)' 
       }
       return style;
     },
-    inStack(index, currentPage) {
+    inStack (index, currentPage) {
       let stack = [];
-      let visible = this.temporaryData.visible;
+      let visible =
+       this.temporaryData.visible;
       let length = this.pages.length;
-      for(let i = 0; i < visible; i++) {
-        if(currentPage + i < length) {
+      for (let i = 0; i < visible; i++) {
+        if (currentPage + i < length) {
           stack.push(currentPage + i);
         } else {
-          stack.push(currentPage + i - length);
+          stack.push(currentPage + i - length )
         }
       }
-      return stack.indexOf(index) >= 0;
+      return stack.indexOf(index) >= 0
     },
     prev() {
-      let width = this.$el.offsetWidth;
-      this.temporaryData.poswidth = -width;
-      this.temporaryData.posheight = 0;
-      this.temporaryData.opacity = 0;
-      this.temporaryData.rotate = '-3';
+      let width = this.$el.offsetWidth
+      this.temporaryData.poswidth = -width
+      this.temporaryData.posheight = 0
+      this.temporaryData.opacity = '0'
+      this.temporaryData.rotate = '-3'
     },
     next() {
-      let width = this.$el.offsetWidth;
-      this.temporaryData.poswidth = width;
-      this.temporaryData.posheight = 0;
-      this.temporaryData.opacity = 0;
-      this.temporaryData.rotate = '3';
+      let width = this.$el.offsetWidth
+      this.temporaryData.poswidth = width
+      this.temporaryData.posheight = 0
+      this.temporaryData.opacity = '0'
+      this.temporaryData.rotate = '3'
     }
-    
   }
 }  
 </script>
